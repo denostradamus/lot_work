@@ -1,0 +1,56 @@
+<form action="form_action.php" method="get">
+<p>First name: <input type="text" name="fname" /></p>
+<p>Last name: <input type="text" name="lname" /></p>
+<input type="submit" value="Submit" />
+</form>
+<form action="form_action.php" method="get">
+<p>First name: <input id="bt1" type="text" name="fname" /></p>
+<p>Last name: <input id="bt2" type="text" name="lname" /></p>
+<input type="submit" value="Submit" />
+</form>
+<script>
+console.log($('#bt1').val())
+console.log($('#bt2').val());
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'standard_winrates'
+            },
+            tooltip: {},
+            legend: {
+                data:['winrates']
+            },
+            xAxis: {
+                data: ["dh","rogue","hunter","warrior","paladin","druid"]
+            },
+            yAxis: {},
+            series: [{
+                name: 'winrates',
+                type: 'bar',
+                data: [53, 51, 51, 48, 48, 48]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+    </script>
+</body>
+</html>
